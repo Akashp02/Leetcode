@@ -1,0 +1,42 @@
+class Solution {
+public:
+    int romanToInt(string s) {
+int result=0;
+for(int i=0;i<s.length();i++){
+int s1=check(s[i]);
+if(i+1<s.length())
+{
+int s2=check(s[i+1]);
+if(s1>=s2)
+{
+result+=s1;
+}
+else
+{
+result+=s2-s1;
+i++;
+}
+}
+else
+result+=s1;
+}
+return result;
+}int check(char l){
+if(l=='I')
+return 1;
+if(l=='V')
+return 5;
+if(l=='X')
+return 10;
+if(l=='L')
+return 50;
+if(l=='C')
+return 100;
+if(l=='D')
+return 500;
+if(l=='M')
+return 1000;
+return -1;
+}
+        
+    };
